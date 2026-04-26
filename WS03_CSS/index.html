@@ -1,0 +1,211 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <style>
+      .content-box {
+        padding: 15px;
+        margin: 10px;
+        background-color: #c44dae;
+        border: 1px solid #ccc;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annan sivusto</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      h1 {
+        color: goldenrod;
+      }
+    </style>
+  </head>
+
+  <body>
+    <style>
+      body {
+        background-color: rgb(108, 104, 108);
+      }
+    </style>
+    <h1 style="color: blueviolet">Annan nettisivut</h1>
+    <style>
+      h1 {
+        font-size: 3em;
+      }
+    </style>
+    <p>Opiskelen it-tradenomiksi.</p>
+    <img src="./Images/Aatos1.jpg" alt="kuvalinkki rikki..." />
+    <style>
+      p {
+        color: rgb(37, 35, 174);
+      }
+    </style>
+    <style>
+      table {
+        width: 35%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"] {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      input[type="Submit"] {
+        background-color: #d31d7b;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #9b1e69;
+      }
+    </style>
+
+    <h2>Harrastukset</h2>
+    <ol>
+      <li>Pilates</li>
+      <li>Lukeminen</li>
+      <li>Matkustaminen</li>
+    </ol>
+
+    <a href="https://www.aurinkomatkat.fi/">Matkalle</a>
+
+    <table>
+      <tr>
+        <th>Kurssi</th>
+        <th>Tila</th>
+      </tr>
+      <tr>
+        <td>Websivuston kehittäminen</td>
+        <td>Kesken</td>
+      </tr>
+      <tr>
+        <td>Digitaalisen palvelun perusteet</td>
+        <td>Suoritettu</td>
+      </tr>
+      <tr>
+        <td>Asiantuntijaviestintä ja projektityö</td>
+        <td>Suoritettu</td>
+      </tr>
+    </table>
+
+    <form>
+      <label for="name">Nimi:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+      <label for="email">Sähköposti:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <button class="transition-button">Paina minua</button>
+    <style>
+      .transition-button {
+        background-color: rgb(125, 202, 227);
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .transition-button:hover {
+        background-color: lightcoral;
+      }
+    </style>
+
+    <div class="animation-box"></div>
+    <style>
+      .animation-box {
+        width: 60px;
+        height: 60px;
+        background-color: rgb(236, 95, 206);
+        position: relative;
+        animation: move 2s infinite alternate;
+      }
+
+      @keyframes move {
+        from {
+          left: 0;
+        }
+        to {
+          left: 100px;
+        }
+      }
+    </style>
+    <ul class="pseudo-list">
+      <li>Toukokuu</li>
+      <li>Kesäkuu</li>
+      <li>Heinäkuu</li>
+      <li>Elokuu</li>
+    </ul>
+    <style>
+      .pseudo-list li:nth-child(odd) {
+        background-color: rgb(215, 75, 210);
+      }
+
+      .pseudo-list li:nth-child(even) {
+        background-color: rgb(113, 56, 182);
+      }
+    </style>
+
+    <img src="./Images/Aatos1.jpg" alt="Sample Image" class="filter-image" />
+    <style>
+      .filter-image {
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+      }
+
+      .filter-image:hover {
+        filter: grayscale(0%);
+      }
+    </style>
+
+    <blockquote class="quote">Serendipity</blockquote>
+
+    <style>
+      .quote {
+        position: relative;
+        padding-left: 30px;
+        font-style: italic;
+      }
+
+      .quote::before {
+        content: "“";
+        font-size: 30px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        color: rgb(158, 35, 224);
+      }
+    </style>
+    <div class="content-box">
+      <h3>Lisätiedot</h3>
+      <p>Saa soittamalla numeroon p.00000000</p>
+    </div>
+  </body>
+</html>
