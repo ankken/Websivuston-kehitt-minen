@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title> Leikkokukat - Kukkakauppa Athena</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { background-color: rgb(229, 214, 204); color: rgb(77, 75, 80); font-family: Georgia, serif; color: rgb(111, 109, 109); padding: 20px; }
+        nav a { margin-right: 15px; color: rgb(100, 103, 104); text-decoration: none; }
+        .content { background: rgba(229,214,204,0.1); padding: 20px; border-radius: 8px; }
+        
+        /* Pieni lisäys napin tyyliin */
+        .add-to-cart-btn {
+            background-color: #8b7362;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: Georgia, serif;
+        }
+        .add-to-cart-btn:hover { background-color: #6a574a; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Kotisivu</a>
+        <a href="leikkokukat.html" style="font-weight:bold">Leikkokukat</a>
+        <a href="tietoameistä.html">Tietoa meistä</a>
+        <a href="ostoskori.html">Ostoskori (<span id="kori-laskuri">0</span>)</a>
+    </nav>
+    <div class="content">
+        <h1>Leikkokukat</h1>
+    </div>
+    <div class="cards">
+        
+       
+        <div class="card" style="width: 18rem;">
+            <img src="./Images/Pioni 2.jpg" class="card-img-top" alt="Pioni" style="width: 200px; height: auto;">
+            <div class="card-body">
+                <h2 class="card-title">Pioni</h2>
+                <p class="card-text">Nämä pionit vaihtavat värin ajan myötä. <br><strong>15.00 €</strong></p>
+            </div>
+            <div class="card-body">
+                <button onclick="lisaaOstoskoriin('Pioni', 15.00)" class="add-to-cart-btn">Lisää ostoskoriin</button>
+            </div>
+        </div>
+
+       
+        <div class="card" style="width: 18rem;">
+            <img src="./Images/Kiinanruusu.jpg" class="card-img-top" alt="Kiinanruusu" style="width: 200px; height: auto;">
+            <div class="card-body">
+                <h2 class="card-title">Kiinanruusu</h2>
+                <p class="card-text">Nämä kiinanruusut ovat kauniita. <br><strong>12.50 €</strong></p>
+            </div>
+            <div class="card-body">
+                <button onclick="lisaaOstoskoriin('Kiinanruusu', 12.50)" class="add-to-cart-btn">Lisää ostoskoriin</button>
+            </div>
+        </div>
+
+    
+        <div class="card" style="width: 18rem;">
+            <img src="./Images/Hortensia2.jpg" class="card-img-top" alt="Hortensia" style="width: 200px; height: auto;">
+            <div class="card-body">
+                <h2 class="card-title">Hortensia</h2>
+                <p class="card-text">Nämä hortensiat ovat kauniita ja suuria. <br><strong>18.00 €</strong></p>
+            </div>
+            <div class="card-body">
+                <button onclick="lisaaOstoskoriin('Hortensia', 18.00)" class="add-to-cart-btn">Lisää ostoskoriin</button>
+            </div>
+        </div>
+
+        
+        <div class="card" style="width: 18rem;">
+            <img src="./Images/Asetelma.jpg" class="card-img-top" alt="Asetelma" style="width: 200px; height: auto;">
+            <div class="card-body">
+                <h2 class="card-title">Asetelma</h2>
+                <p class="card-text">Tämä kimppu on ihanan värikäs ja kesäinen <br><strong>30.00 €</strong></p>
+            </div>
+            <div class="card-body">
+                <button onclick="lisaaOstoskoriin('Asetelma', 18.00)" class="add-to-cart-btn">Lisää ostoskoriin</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    
+    <script>
+        // Päivitetään korin tuotemäärä heti sivun latautuessa
+        paivitaKoriLaskuri();
+
+        function lisaaOstoskoriin(tuotenimi, hinta) {
+            // 1. Haetaan aiemmin tallennettu ostoskori tai luodaan uusi tyhjä taulukko
+            let ostoskori = JSON.parse(localStorage.getItem('kukkakauppa_ostoskori')) || [];
+
+            // 2. Luodaan uusi tuote-olio
+            let uusiTuote = {
+                nimi: tuotenimi,
+                hinta: hinta
+            };
+
+            // 3. Lisätään tuote ostoskori-taulukkoon
+            ostoskori.push(uusiTuote);
+
+            // 4. Tallennetaan päivitetty ostoskori takaisin localStorageen (tekstimuodossa)
+            localStorage.setItem('kukkakauppa_ostoskori', JSON.stringify(ostoskori));
+
+            // 5. Annetaan käyttäjälle palaute ja päivitetään laskuri
+            alert(tuotenimi + " lisättiin ostoskoriin!");
+            paivitaKoriLaskuri();
+        }
+
+        function paivitaKoriLaskuri() {
+            let ostoskori = JSON.parse(localStorage.getItem('kukkakauppa_ostoskori')) || [];
+            let laskuriElementti = document.getElementById('kori-laskuri');
+            if(laskuriElementti) {
+                laskuriElementti.textContent = ostoskori.length;
+            }
+        }
+    </script>
+</body>
+</html>

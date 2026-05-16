@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Ostoskori - Kukkakauppa Athena</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { background-color: rgb(229, 214, 204); color: rgb(77, 75, 80); font-family: Georgia, serif; color: rgb(111, 109, 109); padding: 20px; }
+        nav a { margin-right: 15px; color: rgb(100, 103, 104); text-decoration: none; }
+        .content { background: rgba(229,214,204,0.1); padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        
+        /* Tyylit ostoskorin listalle ja napille */
+        #ostoskorin-sisalto {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #ostoskorin-sisalto ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #ostoskorin-sisalto li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1em;
+        }
+        .clear-cart-btn {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-family: Georgia, serif;
+        }
+        .clear-cart-btn:hover { background-color: #c9302c; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Kotisivu</a>
+        <a href="leikkokukat.html">Leikkokukat</a>
+        <a href="tietoameistä.html">Tietoa meistä</a>
+        <a href="ostoskori.html" style="font-weight:bold">Ostoskori</a>
+    </nav>
+    
+    <div class="content">
+        <h1>Ostoskori</h1>
+        <p>Tässä on ostoskorissasi olevat tuotteet.</p>
+        
+        <!-- TÄHÄN TULOSTUVAT OSTOSKORIN TUOTTEET JAVASCRIPTIN AVULLA -->
+        <div id="ostoskorin-sisalto">
+            <!-- JavaScript täyttää tämän osion -->
+        </div>
+    </div>
+
+    <!-- Olemassa oleva kirjautumislomakkeesi -->
+    <div class="content">
+        <h2>Kirjaudu sisään</h2>
+        <form>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Sähköposti</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Salasana</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Muista minut</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
+        </form>
+    </div>
+
+    <!-- TÄMÄ SCRIPT HOITAA OSTOSKORIN NÄYTTÄMISEN -->
+    <script>
+        // Haetaan ostoskori localStoragesta (selaimen muistista)
+        let ostoskori = JSON.parse(localStorage.getItem('kukkakauppa_ostoskori')) || [];
+        // Etsitään HTML-elementti, johon sisältö laitetaan
+        let sisaltoDiv = document.getElementById('ostoskorin-sisalto');
+
+        // Tarkistetaan onko kori tyhjä
+        if (ostoskori.length === 0) {
+            sisaltoDiv.innerHTML = "<p>Ostoskorisi on tällä hetkellä tyhjä.</p>";
+        } else {
+            // Jos korissa on tuotteita, luodaan HTML-lista
+            let listaHTML = "<ul>";
+            let yhteishinta = 0;
+
+            // Käydään jokainen tuote läpi ja lisätään listaan
+            ostoskori.forEach(function(tuote) {
+                listaHTML += "<li><strong>" + tuote.nimi + "</strong> - " + tuote.hinta.toFixed(2) + " €</li>";
+                yhteishinta += tuote.hinta; // Lisätään tuotteen hinta yhteissummaan
+            });
+
+            listaHTML += "</ul>";
+            
+            // Näytetään yhteishinta
+            listaHTML += "<h3>Yhteensä: " + yhteishinta.toFixed(2) + " €</h3>";
+            
+            // Lisätään nappi, jolla korin voi tyhjentää
+            listaHTML += '<button class="clear-cart-btn" onclick="tyhjennaKori()">Tyhjennä ostoskori</button>';
+            
+            // Laitetaan rakennettu HTML sivulle
+            sisaltoDiv.innerHTML = listaHTML;
+        }
+
+        // Funktio ostoskorin tyhjentämiseen
+        function tyhjennaKori() {
+            localStorage.removeItem('kukkakauppa_ostoskori'); // Poistetaan tiedot muistista
+            location.reload(); // Ladataan sivu uudelleen, jotta näkymä päivittyy
+        }
+    </script>
+</body>
+</html>
