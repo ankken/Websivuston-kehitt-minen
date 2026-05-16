@@ -1,9 +1,0 @@
-.card {
-    width: 100% !important;   /* Pakottaa kortin joustamaan */
-    max-width: 300px;         /* Estää korttia venymästä liikaa tietokoneella */
-}
-.card-img-top {
-    width: 100% !important;   /* Pakottaa kuvan joustamaan kortin mukana */
-    height: 250px;
-    object-fit: cover;
-}

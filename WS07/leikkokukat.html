@@ -13,9 +13,9 @@
         
         .cards {
             display: flex;
-            flex-wrap: wrap;       /* Sallii korttien tippua allekkain puhelimella */
-            gap: 20px;             /* Väli korttien väliin */
-            justify-content: center; /* Keskittää kortit ruudulle */
+            flex-wrap: wrap;       
+            gap: 20px;             
+            justify-content: center; 
             padding: 20px 0;
         }
 
@@ -26,14 +26,14 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
-            width: 100%;           /* Puhelimella kortti ottaa koko leveyden... */
-            max-width: 300px;      /* ...mutta tietokoneella se pysähtyy 300 pikseliin */
+            width: 100%;           
+            max-width: 300px;      
         }
 
         .card-img-top {
-            width: 100%;           /* Kuva täyttää aina kortin leveyden */
-            height: 250px;         /* Pakottaa kaikki kuvat samanpituisiksi */
-            object-fit: cover;     /* Rajaa kuvan kauniisti ilman, että se litistyy */
+            width: 100%;           
+            height: 250px;         
+            object-fit: cover;     
         }
 
         .card-body {
@@ -106,7 +106,6 @@
                 <p class="card-text">Tämä kimppu on ihanan värikäs ja kesäinen <br><strong>30.00 €</strong></p>
             </div>
             <div class="card-body">
-                <!-- Korjattu hinta tähän 30.00 -->
                 <button onclick="lisaaOstoskoriin('Asetelma', 30.00)" class="add-to-cart-btn">Lisää ostoskoriin</button>
             </div>
         </div>
