@@ -6,8 +6,10 @@ $grid-breakpoints: (
   xl: 1200px,
   xxl: 1400px
 );
-.card-img-top {
-    width: 100% !important;  /* Kuva täyttää aina kortin leveyden */
-    height: 200px !important; /* Pakotetaan kuvat samanpituiseksi (valinnainen) */
-    object-fit: cover;       /* Pitää kuvan kuvasuhteen siistinä, vaikka sitä rajattaisiin */
+.cards {
+    display: flex;
+    flex-wrap: wrap;       /* Sallii korttien hyppiä seuraavalle riville puhelimella */
+    gap: 20px;             /* Jättää korttien väliin ilmarakoa */
+    justify-content: center; /* Keskittää kortit näytölle */
+    padding: 20px;
 }
