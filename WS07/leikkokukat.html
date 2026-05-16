@@ -3,14 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Leikkokukat - Kukkakauppa Athena</title>
+    
+    <title>Leikkokukat - Kukkakauppa Athena</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body { background-color: rgb(229, 214, 204); color: rgb(77, 75, 80); font-family: Georgia, serif; color: rgb(111, 109, 109); padding: 20px; }
         nav a { margin-right: 15px; color: rgb(100, 103, 104); text-decoration: none; }
         .content { background: rgba(229,214,204,0.1); padding: 20px; border-radius: 8px; }
         
-        /* Pieni lisäys napin tyyliin */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;       /* Sallii korttien tippua allekkain puhelimella */
+            gap: 20px;             /* Väli korttien väliin */
+            justify-content: center; /* Keskittää kortit ruudulle */
+            padding: 20px 0;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            width: 100%;           /* Puhelimella kortti ottaa koko leveyden... */
+            max-width: 300px;      /* ...mutta tietokoneella se pysähtyy 300 pikseliin */
+        }
+
+        .card-img-top {
+            width: 100%;           /* Kuva täyttää aina kortin leveyden */
+            height: 250px;         /* Pakottaa kaikki kuvat samanpituisiksi */
+            object-fit: cover;     /* Rajaa kuvan kauniisti ilman, että se litistyy */
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
         .add-to-cart-btn {
             background-color: #8b7362;
             color: white;
@@ -19,6 +48,7 @@
             cursor: pointer;
             border-radius: 4px;
             font-family: Georgia, serif;
+            width: 100%;          
         }
         .add-to-cart-btn:hover { background-color: #6a574a; }
     </style>
@@ -33,11 +63,11 @@
     <div class="content">
         <h1>Leikkokukat</h1>
     </div>
+    
     <div class="cards">
         
-       
-        <div class="card" style="width: 18rem;">
-            <img src="./Images/Pioni 2.jpg" class="card-img-top" alt="Pioni" style="width: 300px; height: auto;">
+        <div class="card">
+            <img src="./Images/Pioni 2.jpg" class="card-img-top" alt="Pioni">
             <div class="card-body">
                 <h2 class="card-title">Pioni</h2>
                 <p class="card-text">Nämä pionit vaihtavat värin ajan myötä. <br><strong>15.00 €</strong></p>
@@ -47,9 +77,8 @@
             </div>
         </div>
 
-       
-        <div class="card" style="width: 18rem;">
-            <img src="./Images/Kiinanruusu.jpg" class="card-img-top" alt="Kiinanruusu" style="width: 300px; height: auto;">
+        <div class="card">
+            <img src="./Images/Kiinanruusu.jpg" class="card-img-top" alt="Kiinanruusu">
             <div class="card-body">
                 <h2 class="card-title">Kiinanruusu</h2>
                 <p class="card-text">Nämä kiinanruusut ovat kauniita. <br><strong>12.50 €</strong></p>
@@ -59,9 +88,8 @@
             </div>
         </div>
 
-    
-        <div class="card" style="width: 18rem;">
-            <img src="./Images/Hortensia2.jpg" class="card-img-top" alt="Hortensia" style="width: 300px; height: auto;">
+        <div class="card">
+            <img src="./Images/Hortensia2.jpg" class="card-img-top" alt="Hortensia">
             <div class="card-body">
                 <h2 class="card-title">Hortensia</h2>
                 <p class="card-text">Nämä hortensiat ovat kauniita ja suuria. <br><strong>18.00 €</strong></p>
@@ -71,43 +99,28 @@
             </div>
         </div>
 
-        
-        <div class="card" style="width: 18rem;">
-            <img src="./Images/Asetelma.jpg" class="card-img-top" alt="Asetelma" style="width: 300px; height: auto;">
+        <div class="card">
+            <img src="./Images/Asetelma.jpg" class="card-img-top" alt="Asetelma">
             <div class="card-body">
                 <h2 class="card-title">Asetelma</h2>
                 <p class="card-text">Tämä kimppu on ihanan värikäs ja kesäinen <br><strong>30.00 €</strong></p>
             </div>
             <div class="card-body">
-                <button onclick="lisaaOstoskoriin('Asetelma', 18.00)" class="add-to-cart-btn">Lisää ostoskoriin</button>
+                <!-- Korjattu hinta tähän 30.00 -->
+                <button onclick="lisaaOstoskoriin('Asetelma', 30.00)" class="add-to-cart-btn">Lisää ostoskoriin</button>
             </div>
         </div>
 
-
     </div>
 
-    
     <script>
-        // Päivitetään korin tuotemäärä heti sivun latautuessa
         paivitaKoriLaskuri();
 
         function lisaaOstoskoriin(tuotenimi, hinta) {
-            // 1. Haetaan aiemmin tallennettu ostoskori tai luodaan uusi tyhjä taulukko
             let ostoskori = JSON.parse(localStorage.getItem('kukkakauppa_ostoskori')) || [];
-
-            // 2. Luodaan uusi tuote-olio
-            let uusiTuote = {
-                nimi: tuotenimi,
-                hinta: hinta
-            };
-
-            // 3. Lisätään tuote ostoskori-taulukkoon
+            let uusiTuote = { nimi: tuotenimi, hinta: hinta };
             ostoskori.push(uusiTuote);
-
-            // 4. Tallennetaan päivitetty ostoskori takaisin localStorageen (tekstimuodossa)
             localStorage.setItem('kukkakauppa_ostoskori', JSON.stringify(ostoskori));
-
-            // 5. Annetaan käyttäjälle palaute ja päivitetään laskuri
             alert(tuotenimi + " lisättiin ostoskoriin!");
             paivitaKoriLaskuri();
         }
