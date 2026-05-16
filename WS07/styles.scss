@@ -6,10 +6,11 @@ $grid-breakpoints: (
   xl: 1200px,
   xxl: 1400px
 );
-.cards {
-    display: flex;
-    flex-wrap: wrap;       /* Sallii korttien hyppiä seuraavalle riville puhelimella */
-    gap: 50px;             /* Jättää korttien väliin ilmarakoa */
-    justify-content: center; /* Keskittää kortit näytölle */
-    padding: 50px;
+.card {
+    width: 100% !important;  /* Puhelimella kortti ottaa koko näytön leveyden... */
+    max-width: 300px;        /* ...mutta se ei koskaan kasva yli 300px leveäksi tietokoneella */
+    background-color: white; /* Taustaväri korteille, jos haluat */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
