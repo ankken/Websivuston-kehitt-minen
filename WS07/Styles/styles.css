@@ -1,8 +1,9 @@
 .card {
-    width: 100% !important;  /* Puhelimella kortti ottaa koko näytön leveyden... */
-    max-width: 300px;        /* ...mutta se ei koskaan kasva yli 300px leveäksi tietokoneella */
-    background-color: white; /* Taustaväri korteille, jos haluat */
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    width: 100% !important;   /* Pakottaa kortin joustamaan */
+    max-width: 300px;         /* Estää korttia venymästä liikaa tietokoneella */
+}
+.card-img-top {
+    width: 100% !important;   /* Pakottaa kuvan joustamaan kortin mukana */
+    height: 250px;
+    object-fit: cover;
 }
