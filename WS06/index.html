@@ -1,0 +1,428 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <style>
+      .content-box {
+        padding: 15px;
+        margin: 10px;
+        background-color: #c44dae;
+        border: 1px solid #ccc;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annan sivusto</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      h1 {
+        color: blueviolet;
+      }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <style>
+      body {
+        background-color: rgb(108, 104, 108);
+      }
+    </style>
+    <header class="site-header">
+      <div class="site-header__content">
+        <span class="site-header__kicker"
+          >Laurea University of Applied Sciences</span
+        >
+        <h1 class="site-header__title">Annan nettisivut</h1>
+      </div>
+    </header>
+    <div class="grid-container">
+      <div class="grid-item"><a href="index.html">Kotisivu</a></div>
+      <div class="grid-item"><a href="about.html">Tietoa meistä</a></div>
+      <div class="grid-item"><a href="services.html">Palvelut</a></div>
+      <div class="grid-item"><a href="contact.html">Ota yhteyttä</a></div>
+      <div class="grid-item"><a href="portfolio.html">Portfolio</a></div>
+      <div class="grid-item"><a href="faq.html">FAQ</a></div>
+    </div>
+
+    <div class="flex-container">
+      <div class="box">Suomi</div>
+      <div class="box">Ruotsi</div>
+      <div class="box">Englanti</div>
+    </div>
+
+    <div class="responsive-box">Skaalaa ikkunaa huomataksesi eron</div>
+
+    <div class="responsive-container">
+      <div class="column">Column 1</div>
+      <div class="column">Column 2</div>
+    </div>
+
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto;
+        gap: 10px;
+
+        max-width: 600px;
+        margin: 20px 0;
+      }
+
+      .grid-item {
+        background-color: lightgreen;
+        padding: 20px;
+        text-align: center;
+        border: 1px solid #555;
+      }
+
+      .flex-container {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      .box {
+        background-color: lightblue;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .responsive-box {
+        padding: 20px;
+        text-align: center;
+        max-width: 400px;
+        margin: 20px auto;
+      }
+
+      @media (max-width: 600px) {
+        .responsive-box {
+          background-color: lightcoral;
+        }
+      }
+
+      @media (min-width: 601px) {
+        .responsive-box {
+          background-color: lightseagreen;
+        }
+      }
+      .responsive-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .column {
+        flex: 1;
+        padding: 10px;
+      }
+
+      @media (max-width: 600px) {
+        .column {
+          flex: 100%;
+        }
+      }
+      .responsive-image {
+        max-width: 100%;
+        height: auto;
+      }
+      .media-query-box {
+        padding: 20px;
+        text-align: center;
+        max-width: 400px;
+        margin: 20px auto;
+      }
+
+      @media (max-width: 600px) {
+        .media-query-box {
+          background-color: rgb(240, 128, 236);
+        }
+      }
+
+      @media (min-width: 601px) {
+        .media-query-box {
+          background-color: lightblue;
+        }
+      }
+      .responsive-nav .nav-list {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+      }
+
+      .responsive-nav .menu-toggle {
+        display: none;
+      }
+
+      @media (max-width: 600px) {
+        .responsive-nav .nav-list {
+          display: none;
+          flex-direction: column;
+          background-color: #f4f4f4;
+          padding: 10px;
+        }
+
+        .responsive-nav .menu-toggle {
+          display: block;
+          cursor: pointer;
+          padding: 10px;
+          background: #d31d7b;
+          color: white;
+          border: none;
+        }
+
+        .responsive-nav:hover .nav-list {
+          display: flex;
+        }
+      }
+    </style>
+    <nav class="responsive-nav">
+      <button class="menu-toggle">☰ Menu</button>
+      <ul class="nav-list">
+        <li><a href="#">Kotisivu</a></li>
+        <li><a href="#">Tietoa meistä</a></li>
+        <li><a href="#">Ota yhteyttä</a></li>
+      </ul>
+    </nav>
+
+    <div style="width: 300px; border: 2px solid red">
+      <img
+        src="./Images/kukka.jpg"
+        alt="Responsive Image"
+        class="responsive-image"
+      />
+    </div>
+    <div class="media-query-box">Skaalaa ikkunaa huomataksesi eron</div>
+
+    <p>Opiskelen it-tradenomiksi.</p>
+    <img src="./Images/Aatos1.jpg" alt="kuvalinkki rikki..." />
+    <style>
+      p {
+        color: rgb(37, 35, 174);
+      }
+    </style>
+    <style>
+      table {
+        width: 35%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"] {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      input[type="Submit"] {
+        background-color: #d31d7b;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #9b1e69;
+      }
+    </style>
+
+    <h2>Harrastukset</h2>
+    <ol>
+      <li>Pilates</li>
+      <li>Lukeminen</li>
+      <li>Matkustaminen</li>
+    </ol>
+
+    <a href="https://www.aurinkomatkat.fi/">Matkalle</a>
+
+    <table>
+      <tr>
+        <th>Kurssi</th>
+        <th>Tila</th>
+      </tr>
+      <tr>
+        <td>Websivuston kehittäminen</td>
+        <td>Kesken</td>
+      </tr>
+      <tr>
+        <td>Digitaalisen palvelun perusteet</td>
+        <td>Suoritettu</td>
+      </tr>
+      <tr>
+        <td>Asiantuntijaviestintä ja projektityö</td>
+        <td>Suoritettu</td>
+      </tr>
+    </table>
+
+    <form>
+      <label for="name">Nimi:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+      <label for="email">Sähköposti:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <button class="transition-button">Paina minua</button>
+    <style>
+      .transition-button {
+        background-color: rgb(125, 202, 227);
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .transition-button:hover {
+        background-color: lightcoral;
+      }
+    </style>
+
+    <div class="animation-box"></div>
+    <style>
+      .animation-box {
+        width: 60px;
+        height: 60px;
+        background-color: rgb(236, 95, 206);
+        position: relative;
+        animation: move 2s infinite alternate;
+      }
+
+      @keyframes move {
+        from {
+          left: 0;
+        }
+        to {
+          left: 100px;
+        }
+      }
+    </style>
+    <ul class="pseudo-list">
+      <li>Toukokuu</li>
+      <li>Kesäkuu</li>
+      <li>Heinäkuu</li>
+      <li>Elokuu</li>
+    </ul>
+    <style>
+      .pseudo-list li:nth-child(odd) {
+        background-color: rgb(215, 75, 210);
+      }
+
+      .pseudo-list li:nth-child(even) {
+        background-color: rgb(113, 56, 182);
+      }
+    </style>
+
+    <img src="./Images/Aatos1.jpg" alt="Sample Image" class="filter-image" />
+    <style>
+      .filter-image {
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+      }
+
+      .filter-image:hover {
+        filter: grayscale(0%);
+      }
+    </style>
+
+    <blockquote class="quote">Serendipity</blockquote>
+
+    <style>
+      .quote {
+        position: relative;
+        padding-left: 30px;
+        font-style: italic;
+      }
+
+      .quote::before {
+        content: "“";
+        font-size: 30px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        color: rgb(158, 35, 224);
+      }
+    </style>
+    <div class="content-box">
+      <h3>Lisätiedot</h3>
+      <p>Saa soittamalla numeroon p.00000000</p>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Ankken</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Kotisivu</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tietoa meistä</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Yhteystiedot</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-12">Yksi</div>
+        <div class="col-md-4 col-12">Kaksi</div>
+        <div class="col-md-4 col-12">Kolme</div>
+      </div>
+    </div>
+    <button class="btn btn-primary">Nappi 1</button>
+    <button class="btn btn-secondary">Nappi 2</button>
+    <button class="btn btn-success">Nappi 3</button>
+    <div class="card" style="width: 18rem">
+      <img src="./Images/Kukka.jpg" class="card-img-top" alt="Card Image" />
+      <div class="card-body">
+        <h5 class="card-title">Kukka-asetelma</h5>
+        <p class="card-text">Vaihda vesi päivittäin</p>
+        <a href="#" class="btn btn-primary">Lue lisää</a>
+      </div>
+    </div>
+    <div class="alert alert-warning" role="alert">
+      Tämä on varoitusilmoitus!
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
