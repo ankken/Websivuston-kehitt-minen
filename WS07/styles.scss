@@ -9,7 +9,7 @@ $grid-breakpoints: (
 .cards {
     display: flex;
     flex-wrap: wrap;       /* Sallii korttien hyppiä seuraavalle riville puhelimella */
-    gap: 20px;             /* Jättää korttien väliin ilmarakoa */
+    gap: 50px;             /* Jättää korttien väliin ilmarakoa */
     justify-content: center; /* Keskittää kortit näytölle */
-    padding: 20px;
+    padding: 50px;
 }
