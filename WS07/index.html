@@ -3,16 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Kukkakauppa Athena</title>
+    <title>Kukkakauppa Athena</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-  </head>
-  <body>
-    <div>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </div>
     <style>
       body {
         background-color: rgb(229, 214, 204);
@@ -21,7 +16,62 @@
         color: rgb(77, 75, 80);
         font-family: Georgia, serif;
       }
+      .navbar-nav .nav-link,
+      .navbar-nav .dropdown-toggle,
+      .dropdown-menu .dropdown-item {
+        font-family: Georgia, serif;
+        color: rgb(77, 75, 80) !important;
+      }
+      p {
+        color: rgb(77, 75, 80);
+        font-family: Georgia, serif;
+      }
+
+      .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      .popup-overlay.show {
+        display: flex;
+      }
+
+      .newsletter {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 500px;
+        width: 90%;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #777;
+      }
+      .close-btn:hover {
+        color: #000;
+      }
     </style>
+  </head>
+  <body>
+    
     <h1>Kukkakauppa Athena</h1>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
@@ -47,11 +97,17 @@
         </div>
       </div>
     </nav>
-    <p>
-      Kukkakauppa Athena tarjoaa tuoreita leikkokukkia, kimppuja ja sesongin
-      kauneimpia asetelmia rakkaudella sidottuna.
-    </p>
-    <p>Toimitamme kukkia nopeasti pääkaupunkiseudulla.</p>
+    <div class="welcome-section mt-5">
+      <p>
+        Kukkakauppa Athena on pieni perheyritys, joka on erikoistunut kauniisiin
+        kukka-asetelmiin ja kukkakimppuihin. Tarjoamme laajan valikoiman tuoreita
+        kukkia ja kasveja, jotka sopivat kaikkiin tilaisuuksiin.
+      </p>
+      <p>
+        Toimitamme kukkia nopeasti pääkaupunkiseudulla. Kukkakauppa Athena tarjoaa
+        tuoreita leikkokukkia, kimppuja ja sesongin kauneimpia asetelmia rakkaudella
+        sidottuna.
+      </p>
     <blockquote
       class="quote"
       style="
@@ -62,67 +118,75 @@
     >
       Kukkia elämän kauneimpiin hetkiin.
     </blockquote>
-    <div id="carouselExample" class="carousel slide">
+
+    <div id="newsletter-popup" class="popup-overlay">
+      <div class="newsletter">
+        <button class="close-btn">&times;</button>
+        <h3>Tilaa uutiskirjeemme</h3>
+        <p>Pysy ajan tasalla ja saat parhaat vinkit suoraan sähköpostiisi.</p>
+        <form>
+          <div class="input-group mb-3">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Sähköpostiosoitteesi"
+              required
+            />
+            <button class="btn btn-dark" type="submit">Tilaa</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="carouselExample" class="carousel slide mt-4">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img
-            src="Images/Kimppu4.jpg"
-            class="d-block mx-auto"
-            alt="Kimppu4"
-            style="width: 400px; height: auto"
-          />
+          <img src="Images/Kimppu4.jpg" class="d-block mx-auto" alt="Kimppu4" style="width: 400px; height: auto" />
         </div>
         <div class="carousel-item">
-          <img
-            src="Images/Kimppu2.jpg"
-            class="d-block mx-auto"
-            alt="Kimppu2"
-            style="width: 400px; height: auto"
-          />
+          <img src="Images/Kimppu2.jpg" class="d-block mx-auto" alt="Kimppu2" style="width: 400px; height: auto" />
         </div>
         <div class="carousel-item">
-          <img
-            src="Images/Kimppu3.jpg"
-            class="d-block mx-auto"
-            alt="Kimppu3"
-            style="width: 400px; height: auto"
-          />
+          <img src="Images/Kimppu3.jpg" class="d-block mx-auto" alt="Kimppu3" style="width: 400px; height: auto" />
         </div>
         <div class="carousel-item">
-          <img
-            src="Images/Kimppu1.jpg"
-            class="d-block mx-auto"
-            alt="Kimppu1"
-            style="width: 400px; height: auto"
-          />
+          <img src="Images/Kimppu1.jpg" class="d-block mx-auto" alt="Kimppu1" style="width: 400px; height: auto" />
         </div>
         <div class="carousel-item">
-          <img
-            src="Images/Hortensia.jpg"
-            class="d-block mx-auto"
-            alt="Hortensia"
-            style="width: 400px; height: auto"
-          />
+          <img src="Images/Hortensia.jpg" class="d-block mx-auto" alt="Hortensia" style="width: 400px; height: auto" />
         </div>
       </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExample"
-        data-bs-slide="prev"
-      >
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExample"
-        data-bs-slide="next"
-      >
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const popup = document.getElementById("newsletter-popup");
+        const closeBtn = popup.querySelector(".close-btn");
+
+        setTimeout(function () {
+          popup.classList.add("show");
+        }, 5000); 
+
+        closeBtn.addEventListener("click", function () {
+          popup.classList.remove("show");
+        });
+
+        popup.addEventListener("click", function (e) {
+          if (e.target === popup) {
+            popup.classList.remove("show");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
